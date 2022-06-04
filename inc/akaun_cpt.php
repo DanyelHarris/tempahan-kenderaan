@@ -5,13 +5,12 @@
 ========================*/
 
 /* Activate CPT */
-$daftar = get_option ('activate_daftar');
-if(@$daftar == 1){
-	add_action('init', 'stk_pendaftaran_custom_post_type');
-}
+
+	add_action('init', 'stk_daftar_custom_post_type');
+
 
 /* Register CPT */
-function stk_pendaftaran_custom_post_type(){
+function stk_daftar_custom_post_type(){
 	
 	$singular	= __('Daftar');
 	$plural	= __('Daftar');
@@ -47,7 +46,7 @@ function stk_pendaftaran_custom_post_type(){
 	
 	$args = array(
 		'labels'					=>	$labels,
-		'description'        	=> __( 'This is Contact page.', 'bzbr001-contact' ),
+		'description'        	=> __( 'This is Contact page.', 'stk-daftar' ),
 		'public'					=>	false,
 		'exclude_from_search'	=> true,
 		'publicly_queryable'  	=> true,
@@ -110,7 +109,7 @@ add_action('manage_stk-daftar_posts_columns', 'stk_daftar_custom_column', 10, 2)
 function stk_daftar_change_title_text( $title ){
      $screen = get_current_screen();
  
-     if  ( 'stk-contact' == $screen->post_type ) {
+     if  ( 'stk-daftar' == $screen->post_type ) {
           $title = __('Nombor Telefon');
      }
  
